@@ -1,6 +1,122 @@
 {% extends "home.html" %}
 {% block abc %}
-love is .....................
+<style>
+    /* standard TAC base */
+*,*:after,*:before{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}html{font-size:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-tap-highlight-color:transparent}iframe{border:0}h1,h2,h3,h4,h5,h6,p,blockquote,figure,ol,ul{margin:0;padding:0}main{display:block}strong{font-weight:bold}a,button{text-decoration:none;color:inherit}a,a:hover,a:active,a:focus{outline:0}img{max-width:100%;height:auto;border:0}embed,iframe,object{max-width:100%}html{background-color:#f1f1f0;height:100%}body{min-height:100%;max-width:1600px;margin:0 auto;padding:0;background-color:#fff;font:137.5%/1.455 "chaparral-pro", TimesNewRoman, "Times New Roman", Times, serif;border-left:1px solid #d2cfcd;border-right:1px solid #d2cfcd;box-shadow:5px 0 5px -5px #d2cfcd, -5px 0 5px -5px #d2cfcd}html,button,input,select,textarea{color:#4d403a}::-moz-selection{background:#e4e3e2;text-shadow:none;color:#86211d}::selection{background:#e4e3e2;text-shadow:none;color:#86211d}hr{position:relative;display:block;margin:0;padding:0;outline:0;border:0;text-align:center;height:98px}hr:before{content:'';position:absolute;left:0;right:0;top:32px;width:50%;height:2px;margin:0 auto;background-color:#d2cfcd}ul{list-style:disc}ul ul{list-style:circle}ol{list-style:decimal}ul,ol{margin-left:2.909em}ul ul,ul ol,ol ol,ol ul{margin-left:1.455em}li > ul,li > ol{margin-bottom:0}h1,h2,h3,h4,h5,h6,ul,ol,dl,fieldset,p,table,pre{margin-bottom:32px}h1,h2,h3,h4,h5,h6{margin-top:0;font-family:"chaparral-pro-subhead", serif;font-weight:600}h1,.hsize1{font-size:1.802em;line-height:1.231;margin-bottom:0.410em}h2,.hsize2{font-size:1.602em;line-height:1.371;margin-bottom:0.457em}h3,.hsize3{font-size:1.266em;line-height:1.185;margin-bottom:0.593em}h4,h5,h6{font-size:1em;line-height:1.364;margin-bottom:0.364em}a{color:#86211d;text-decoration:none;transition:all 0.25s ease}.main-content p a,.main-content ul a,.main-content ol a{text-shadow:-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;background-image:linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 3px, #86211d 3px, #86211d 4px, rgba(0, 0, 0, 0) 3px)}.main-content .section-bg p a{text-shadow:-1px -1px 0 #f1f1f0, 1px -1px 0 #f1f1f0, -1px 1px 0 #f1f1f0, 1px 1px 0 #f1f1f0}a:hover,a:focus,a:active{color:#4d403a}h1 a,h2 a,h3 a,h4 a,h5 a,h6 a,.nav a{text-decoration:none}.nav-main .nav a{color:inherit}h1 a:after,h2 a:after,h3 a:after,h4 a:after,h5 a:after,h6 a:after{content:' »';vertical-align:text-bottom}
+
+/* Stuff just for Codepen */
+
+.pen-wrapper {
+  padding: 5% 10%;
+  margin: 0 auto;
+}
+
+code { background-color: #e4e3e2; padding: 0 5px; border-radius: 2px; }
+
+/* Chip & Card Styles */
+
+.chip {
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 1px 4px 0 rgba(166, 159, 156, 0);
+    border: 1px solid #d2cfcd;
+    border-radius: 2px;
+    margin-bottom: 64px;
+    transition: box-shadow .25s ease;
+    overflow: hidden;
+    max-width: 500px;
+    margin-bottom: 32px;
+}
+
+.chip-link {
+    display: block;
+    text-decoration: none;
+}
+
+.chip-hero {
+    float: left;
+    max-width: 125px;
+    width: 30%;
+    border-right: 1px solid #d2cfcd;
+    transition: opacity .25s ease;
+}
+
+.chip-text {
+    float: left;
+    width: 70%;
+    padding: 15px 10px ;
+    text-align: left;
+}
+
+.chip-title {
+    font-size: 1em;     
+    line-height: 1.185;   
+    color: #4d403a;
+}
+
+.chip-description {
+    font-family: 'myriad-pro', sans-serif;
+    font-size: 0.702em;
+    color: #a69f9c;
+    transition: color .25s ease;
+    margin-bottom: 0;
+}
+
+.chip-heading { margin-bottom: 32px; }
+
+.chip:hover { box-shadow: 0 0 8px 0px #d2cfcd; }
+</style>
+{% for i in mydata %}
+<div>
+    <div class="pen-wrapper">
+  
+        <h1>
+          {{i[0]}}
+        </h1>
+    
+        <a class="chip-link" href="http://theallendercenter.org/2016/11/trauma-body-2/">      
+          <article class="chip">
+            <img src="http://cdn.theallendercenter.org/wp-content/uploads/2016/11/embodiment-podcast-300x300.jpg" class="chip-hero wp-post-image" alt="Embodiment Podcast">                                   <div class="chip-text">
+              <h3 class="chip-title">Trauma and the Body with Heather Mirous, Part Two</h3>
+              <p class="chip-description">{{i[1]}}</p>
+            </div>
+          </article>
+        </a> <!-- chip -->
+        {% endfor %}
+        <h1>Restructured Chip</h1>
+    
+        <article class="chip">
+          <a class="chip-link" href="http://theallendercenter.org/2016/11/trauma-body-2/"> 
+            <img class="chip-hero wp-post-image" src="http://cdn.theallendercenter.org/wp-content/uploads/2016/11/embodiment-podcast-300x300.jpg">                                   <div class="chip-text">
+              <h3 class="chip-title">Trauma and the Body with Heather Mirous, Part Two</h3>
+              <p class="chip-description">November 12, 2016</p>
+            </div>
+          </a>
+        </article> <!-- chip -->
+    
+        <h2>Thoughts...</h2>
+    
+        <p>What if we called them all (both chips and cards) <code>.card</code>(s) then have a modifier that determines size and styles. Of course the difference in the cards would be markup and the style controlled by the modifier. For example: <code>.card</code>, <code>.card .card-small</code>, or <code>.card .card-button</code>.</p>
+        <p>Chips have a max-width of 500px, is this needed? Should this be controlled based on the grid? Cards have a width of 100% however they should never be in a full width grid.</p>
+        <h3>Card Inventory</h3>
+        <ol>
+            <li>Standard cards with image, title, description: <a href="http://theallendercenter.org/offerings/">offerings</a></li>
+            <li>Large, vertical, with author and small button: <a href="http://theallendercenter.org/blog/">blog</a></li>
+            <li>Simple cards with extended buttons: home, <a href="http://theallendercenter.org/event/healing-wounded-heart-february-2-2017/">events</a> (image, title, button)</li>
+            <li>Simple cards: <a href="http://theallendercenter.org/store/">store</a> (image, title, price)</li>
+            <li>Price cards: <a href="http://theallendercenter.org/store/products/to-be-told/">store items</a> (button, price) similar to the single event card which <u>is not</u> a card but we need an option (perhaps not a card class) to add the price</li>
+            <li>Description cards no title: <a href="http://theallendercenter.org/resources/">bottom of resources</a> (image, description)</li>
+            <li>smaller, horizontal cards (aka chip) with date or author: resources found at <a href="http://theallendercenter.org/resources/">top of resources</a></li>
+        </ol>
+        <h3>Card Classes and Usage</h3>
+        <ul>
+            <li><b>Card: (1, 2, 4, 6)</b> <code>.card</code> Image, must have either title and/or description, author (optional), date (optional), small button (optional)</li>
+            <li><b>Card with Full Button: (3, 5)</b> <code>.card .card-button-full</code> Difference is the title is centered (optional) and the button is full width</li>
+            <li><b>Card Small: (7)</b> <code>.card .card-small</code> different layout, contains image, title, short description (date or author)</li>
+        </ul>
+      
+    </div> <!-- pen wrapper -->
+</div>
 {% endblock abc%}
 
 
